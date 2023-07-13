@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`typename removeTypenames removes deeply nested "__typename" fields from graphql data 1`] = `
+Object {
+  "bar": Object {
+    "baz": Array [
+      Object {
+        "value": "baz",
+      },
+    ],
+    "value": "bar",
+  },
+  "value": "foo",
+}
+`;

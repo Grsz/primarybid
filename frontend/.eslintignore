@@ -1,0 +1,6 @@
+dist
+node_modules
+
+*.ejs
+src/@types/api/
+src/hooks/apollo/apollo-generated.ts

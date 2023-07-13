@@ -1,0 +1,57 @@
+$xs: 0.25rem;
+$s: 0.5rem;
+$m: 1rem;
+$l: 1.25rem;
+$xl: 3rem;
+
+$spaces: (-xs: $xs, -s: $s, -m: $m, -l: $l, -xl: $xl, -auto: auto, -none: 0);
+$sides: (
+  -x: (-left, -right),
+  -y: (-top, -bottom),
+  -top: (-top),
+  -left: (-left),
+  -right: (-right),
+  -bottom: (-bottom),
+  null: null
+);
+$space-types: (
+  margin: margin,
+  padding: padding,
+);
+$gap-types: (-x: column-, -y: row-, null: null);
+
+@mixin sizes($prop, $sides...) {
+  @each $class, $size in $spaces {
+    &#{$class} {
+      @each $side in $sides {
+        #{$prop}#{$side}: $size !important;
+      }
+    }
+  }
+}
+
+@mixin gap-sizes($gap-type) {
+  @each $class, $size in $spaces {
+    &#{$class} {
+      #{$gap-type}gap: $size !important;
+    }
+  }
+}
+@mixin sides($prop) {
+  @each $class, $side in $sides {
+    &#{$class} {
+      @include sizes($prop, $side...);
+    }
+  }
+}
+
+@each $class, $prop in $space-types {
+  .#{$class} {
+    @include sides($prop);
+  }
+}
+@each $class, $gap-type in $gap-types {
+  .gap#{$class} {
+    @include gap-sizes($gap-type);
+  }
+}

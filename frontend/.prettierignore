@@ -1,0 +1,11 @@
+package.json
+node_modules
+dist
+coverage
+.vscode
+amplify
+amplifyPublishIgnore.json
+src/aws-exports.js
+assets/
+src/@types/api/
+src/hooks/apollo/apollo-generated.ts

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "module": "ESNext",
+    "target": "ES2017",
+    "jsx": "react",
+    "allowJs": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "types": ["react", "jest", "node", "@testing-library/jest-dom"],
+    "lib": ["esnext", "dom", "ES2019"],
+    "typeRoots": ["node_modules/@types", "./src/@types"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "**/*.tsx", "**/*.ts", "**/*.d.ts", "**/*.js", "scripts"],
+  "exclude": ["node_modules", "dist", "cypress"]
+}

@@ -1,0 +1,27 @@
+# package directories
+node_modules
+jspm_packages
+.env
+
+# yarn
+yarn-error.log
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/*
+.vscode
+!.vscode/launch.json
+
+# build
+lib
+
+# Tests
+coverage
+
+# Local configs
+config/development.json
+
+# Assets
+assets

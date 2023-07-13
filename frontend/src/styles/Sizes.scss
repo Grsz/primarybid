@@ -1,0 +1,70 @@
+$size-xs: 1rem;
+$size-s: 2.2rem;
+$size-m: 3.5rem;
+$size-l: 7rem;
+$size-xl: 20rem;
+
+*.width-xs {
+  width: $size-xs;
+}
+*.width-s {
+  width: $size-s;
+}
+*.width-m {
+  width: $size-m;
+}
+*.width-l {
+  width: $size-l;
+}
+*.width-xl {
+  width: $size-xl;
+}
+*.width-full {
+  width: 100%;
+}
+*.width-auto {
+  width: auto;
+}
+*.height-xs {
+  height: $size-xs;
+}
+*.height-s {
+  height: $size-s;
+}
+*.height-m {
+  height: $size-m;
+}
+*.height-l {
+  height: $size-l;
+}
+*.height-xl {
+  height: $size-xl;
+}
+*.height-full {
+  height: 100%;
+}
+
+*.size-xs {
+  height: $size-xs;
+  width: $size-xs;
+}
+*.size-s {
+  height: $size-s;
+  width: $size-s;
+}
+*.size-m {
+  height: $size-m;
+  width: $size-m;
+}
+*.size-l {
+  height: $size-l;
+  width: $size-l;
+}
+*.size-xl {
+  height: $size-xl;
+  width: $size-xl;
+}
+*.size-full {
+  height: 100%;
+  width: 100%;
+}

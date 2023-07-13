@@ -1,0 +1,59 @@
+schema:
+  - http://localhost:3000/graphql:
+      name: graphql-endpoint
+documents: ./src/graphql/**/*.{ts,tsx}
+overwrite: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+generates:
+  # Generate API types from graphQL endpoint
+  ./src/@types/api/index.ts:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+    config:
+      skipTypename: true
+      avoidOptionals:
+        field: true
+        inputValue: false
+        object: false
+        defaultValue: true
+      namingConvention:
+        enumValues: "change-case#camelCase"
+      scalars:
+        BigInt: number
+        RegExp: string
+  # Generate types used in queries
+  ./src/@types/api/query-types.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ./index
+    plugins:
+      - typescript-operations
+    config:
+        skipTypename: true
+        avoidOptionals:
+          field: true
+          inputValue: false
+          object: false
+          defaultValue: true
+  # Use generated types from queries to generate typed hooks
+  ./src/hooks/apollo/apollo-generated.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ../../@types/api/query-types
+    plugins:
+      - typescript-react-apollo
+    config:
+      reactApolloVersion: 3
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      skipTypename: true
+      avoidOptionals:
+        field: true
+        inputValue: false
+        object: false
+        defaultValue: true

@@ -1,0 +1,28 @@
+schema: ./src/graphql/**/*.graphql
+documents: null
+overwrite: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+generates:
+  # Generate API types from graphQL endpoint
+  ./src/@types/api/index.ts:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-resolvers
+    config:
+      maybeValue: "T | undefined"
+      skipTypename: true
+      arrayInputCoercion: false
+      avoidOptionals:
+        field: true
+        inputValue: false
+        object: false
+        defaultValue: true
+      namingConvention:
+        enumValues: "change-case#camelCase"
+      scalars:
+        BigInt: number
+        RegExp: string

@@ -1,0 +1,28 @@
+
+type Item {
+  _id: String!
+  originalUrl: String!
+  shortenedUrl: String!
+}
+
+type GetItemsResponse {
+  data: [Item!]!
+  limit: BigInt!
+  offset: BigInt!
+}
+
+type Query {
+  getItems(
+    limit: BigInt = 25
+    offset: BigInt = 0
+  ): GetItemsResponse!
+  countItems: BigInt!
+}
+
+input CreateItemInput {
+  originalUrl: String!
+}
+
+type Mutation {
+  createItem(data: CreateItemInput!): Item!
+}
